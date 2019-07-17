@@ -40,6 +40,13 @@ namespace ResMonitor
             this.TopMost = true;
             this.ShowInTaskbar = false;
             timer1.Enabled = true;
+
+            ContextMenu cm = new ContextMenu();
+            cm.MenuItems.Add("Exit");
+
+            cm.MenuItems[0].Click += MenuClose;
+
+            this.ContextMenu = cm;
         }
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
@@ -75,5 +82,11 @@ namespace ResMonitor
 
 
         }
+        private void MenuClose(object sender, EventArgs e)
+
+        {
+            Close();
+        }
+
     }
 }
